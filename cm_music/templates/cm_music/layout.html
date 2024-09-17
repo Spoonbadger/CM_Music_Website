@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}craig's music website{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+        <!-- Javascript libraries for React -->
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <!-- Load the JS file in static-->
+        <!-- <script type="text/babel" src="{% static 'cm_music/js/pages/Home.js' %}"></script>
+        <script type="text/babel" src="{% static 'cm_music/js/pages/Profile.js' %}"></script>
+        <script type="text/babel" src="{% static 'cm_music/js/pages/Following.js' %}"></script> -->
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="{% url 'index' %}" style="color: rgb(0, 128, 255);">Craig Morley</a>
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'music' %}">Music</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'bio' %}">Bio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'links' %}">Links</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link">Comment</a></li>
+                    {% endif %}
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    {% if not user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item-i">
+                        <a class="nav-link spotify-icon-small" href="https://open.spotify.com/track/0rD7r6tH03uVqbheAqn0yQ?si=a0de3070b0e14f3f" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/spotify/Spotify_Primary_Logo_RGB_Green.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link youtube-icon-small" href="https://www.youtube.com/watch?v=vjMrdpKwVcM&list=OLAK5uy_mZhTEwD5AMuMXK7Z-Sp8McrRuC_gdXCsk" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/youtube/youtube_social_icon_red.png'%}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link insta-icon-small" href="https://www.instagram.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/insta/Instagram_Glyph_Gradient.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link tiktok-icon-small" href="https://www.tiktok.com/@craigmorleymusic" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/tiktok/TikTok_Icon_Black_Circle.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link facebook-icon-small" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link facebook-icon-small" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
+                        </a>
+                    </li>
+                </ul>
+        </nav>
+
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

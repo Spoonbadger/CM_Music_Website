@@ -12,11 +12,11 @@ var aud = document.getElementById("ASong").children[0];
 
         if (isPlaying) {
             aud.pause();
-            musicButton.textContent = "Music ON";
+            musicButton.textContent = "[ Music ON ]";
         } 
         else {
             aud.play();
-            musicButton.textContent = "Music OFF";
+            musicButton.textContent = "[ Music OFF ]";
             console.log("Button clicked on!")
         }
         isPlaying = !isPlaying;

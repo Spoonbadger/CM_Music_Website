@@ -5,6 +5,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
+import random
+
 from .models import User, Post
 
 def bio(request):
@@ -16,13 +18,23 @@ def contact(request):
 
 
 def index(request):
-    if request.user.is_authenticated:
+    videos = [
+        '/videos/By Acting Together We Really Act Vert SD Craig Morley copy.mp4',
+        '/videos/LMM 32 secs VERT.mp4',
+        '/videos/Ocean of Love VERT SD Craig Morley copy.mp4',
+        '/videos/Shotgun when 12 VERT SD Craig Morley copy.mp4',
+        '/videos/VERT cm Beauty and Loss.mp4',
+        '/videos/VERT dune one.mp4',
+        '/videos/VERT Firewing.mp4',
+        '/videos/VERT On the coarctation.mp4',
+        '/videos/VERT2 cig thrown.mp4'
+    ]
 
-        return render(request, 'cm_music/index.html', {
-
+    random.shuffle(videos)
+    
+    return render(request, 'cm_music/index.html', {
+        'videos': videos,
         })
-    else:
-        return render(request, 'cm_music/index.html')
 
 
 def links(request):

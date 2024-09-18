@@ -123,14 +123,33 @@ html, body {
 }
 
 /* VERT MUSIC VIDEOS */
-
 .vids-box {
-    margin: 50px 100px 25px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    justify-content: center;
+
 }
 
-.vid video {
-    max-height: 100px;
+.vid {
+    display: flex;
+    box-sizing: border-box;
+    flex: 1 1 30%;
     overflow: hidden;
+    max-width: 400px;
+    max-height: 600px;
+    margin: 5% 2%;
+    border-radius: 35px;
+    justify-content: center
+}
+
+.vid:hover {
+    cursor: pointer;
+}
+
+.video {
+    object-fit: cover;
+    justify-content: center;
 }
 
 
@@ -147,7 +166,6 @@ html, body {
 
 
 /* BIO */
-
 .bio-box {
     margin: 25px 40% 50px;
     font-weight: 600;

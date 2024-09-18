@@ -32,6 +32,7 @@ background image
 Music - just a view on index?
 -> music videos
     3  x however many / vertical
+    - install git lfs to upload large files to github in .gitattributes file.
     -> can comment below each video? react elements?
 
 Links - just a view?

@@ -6,11 +6,105 @@
     <div id="links-view">
 
 
-        <div class="page-title">Craig Morley</div>
+        <div class="page-title"></div>
+        <script>
+            
 
-        <!-- Links should slide in (animation) and grow from the top left, then the two EPs should appear on the botton half of the screen. 
-          add apple music, add amazon music, add tidal, add bandcamp, add soundcloud -->
+        </script>
 
+        <!-- Links should slide in (animation) and grow from the top left, then the two EPs should appear on the botton half of the screen. -->
+        <nav class="navbar navbar-expand-lg" style="margin-top: 1%;">
+                <ul class="navbar-nav links-nav" style="display: flex; justify-content: center;">
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://open.spotify.com/track/0rD7r6tH03uVqbheAqn0yQ?si=a0de3070b0e14f3f" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/spotify/Spotify_Primary_Logo_RGB_Green.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://www.youtube.com/watch?v=vjMrdpKwVcM&list=OLAK5uy_mZhTEwD5AMuMXK7Z-Sp8McrRuC_gdXCsk" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/youtube/youtube_social_icon_red.png'%}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://www.instagram.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/insta/Instagram_Glyph_Gradient.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://www.tiktok.com/@craigmorleymusic" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/tiktok/TikTok_Icon_Black_Circle.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://apple.co/3XMxnug" rel="noopener noreferrer">
+                            <img src="{% static '/images/icons/apple/apple icon.svg' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://music.amazon.com/albums/B0CYW2PGXW" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static '/images/icons/amazon/Stacked_Amazon_Music_CharcoalOnCyan_Circle_RGB.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static '/images/icons/tidal/tidal-round-black-icon.webp' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://craigmorley.bandcamp.com" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static '/images/icons/bandcamp/bandcamp-button-bc-circle-aqua-512.png' %}">
+                        </a>
+                    </li>
+                    <li class="nav-item-i">
+                        <a class="nav-link icon-big" href="https://soundcloud.com/craigmorleymusic" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static '/images/icons/soundcloud/419679-1x1_SoundCloudLogo_cloudmark-f5912b-original-1645807040.jpg' %}">
+                        </a>
+                    </li>      
+                </ul>
+        </nav>
+        <div class="row" style="display: flex; justify-content: center; margin-bottom: 285px;">
+
+            <li class="nav-item-i">
+                <a class="nav-link icon-big spotify-link-appear" style="max-height: 100px;" href="https://soundcloud.com/craigmorleymusic" target="_blank" rel="noopener noreferrer">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0rD7r6tH03uVqbheAqn0yQ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </a>
+            </li>
+            <li class="nav-item-i">
+                <a class="nav-link icon-big spotify-link-appear" style="max-height: 100px;" href="https://soundcloud.com/craigmorleymusic" target="_blank" rel="noopener noreferrer">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/06ttrEYa2kyESdEHyM9YrF?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </a>
+            </li>
+
+        </div>
+
+        <!-- Thoughts: the script for links should be in the layout page because when the links link is clicked it should load from anywhere?-->
+        <script>
+            x
+
+            document.addEventListener('DOMContentLoaded', () => {
+
+
+                // LINKS LINK ANIMATION
+                linksLink = document.getElementById('links-link');
+                linksLink.addEventListener('click', linksAnimation);
+
+
+                
+
+                function linksAnimation() {
+
+                }
+
+
+            })
+        
+
+        </script>
 
     </div>
 

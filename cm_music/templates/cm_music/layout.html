@@ -22,82 +22,93 @@
         <script type="text/babel" src="{% static 'cm_music/js/pages/Following.js' %}"></script> -->
     </head>
 
-    <body>
-        <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="{% url 'index' %}" style="color: rgb(0, 128, 255);">Craig Morley</a>
+    <div class="d-flex flex-column min-vh-100">
+        <body>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="{% url 'index' %}" style="color: #000c50;">Craig Morley</a>
 
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'music' %}">Music</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'bio' %}">Bio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'links' %}">Links</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link">Comment</a></li>
-                    {% endif %}
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    {% if not user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a>
-                    </li>
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item-i">
-                        <a class="nav-link spotify-icon-small" href="https://open.spotify.com/track/0rD7r6tH03uVqbheAqn0yQ?si=a0de3070b0e14f3f" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/spotify/Spotify_Primary_Logo_RGB_Green.png' %}">
-                        </a>
-                    </li>
-                    <li class="nav-item-i">
-                        <a class="nav-link youtube-icon-small" href="https://www.youtube.com/watch?v=vjMrdpKwVcM&list=OLAK5uy_mZhTEwD5AMuMXK7Z-Sp8McrRuC_gdXCsk" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/youtube/youtube_social_icon_red.png'%}">
-                        </a>
-                    </li>
-                    <li class="nav-item-i">
-                        <a class="nav-link insta-icon-small" href="https://www.instagram.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/insta/Instagram_Glyph_Gradient.png' %}">
-                        </a>
-                    </li>
-                    <li class="nav-item-i">
-                        <a class="nav-link tiktok-icon-small" href="https://www.tiktok.com/@craigmorleymusic" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/tiktok/TikTok_Icon_Black_Circle.png' %}">
-                        </a>
-                    </li>
-                    <li class="nav-item-i">
-                        <a class="nav-link facebook-icon-small" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
-                        </a>
-                    </li>
-                    <li class="nav-item-i">
-                        <a class="nav-link facebook-icon-small" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
-                        </a>
-                    </li>
-                    <li class="nav-item-i">
-                        <a class="nav-link facebook-icon-small" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
-                        </a>
-                    </li>
-                    <li class="nav-item-i">
-                        <a class="nav-link facebook-icon-small" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
-                        </a>
-                    </li>
-                    <li class="nav-item-i">
-                        <a class="nav-link facebook-icon-small" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
-                        </a>
-                    </li>
-                </ul>
-        </nav>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'music' %}">Music</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'bio' %}">Bio</a></li>
+                        <li class="nav-item" id="links-link"><a class="nav-link" href="{% url 'links' %}">Links</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link">Comment</a></li>
+                        {% endif %}
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        {% if not user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item-i">
+                            <a class="nav-link spotify-icon-small icon-small" href="https://open.spotify.com/track/0rD7r6tH03uVqbheAqn0yQ?si=a0de3070b0e14f3f" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/icons/spotify/Spotify_Primary_Logo_RGB_Green.png' %}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link youtube-icon-small icon-small" href="https://www.youtube.com/watch?v=vjMrdpKwVcM&list=OLAK5uy_mZhTEwD5AMuMXK7Z-Sp8McrRuC_gdXCsk" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/icons/youtube/youtube_social_icon_red.png'%}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link insta-icon-small icon-small" href="https://www.instagram.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/icons/insta/Instagram_Glyph_Gradient.png' %}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link tiktok-icon-small icon-small" href="https://www.tiktok.com/@craigmorleymusic" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/icons/tiktok/TikTok_Icon_Black_Circle.png' %}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link facebook-icon-small icon-small" href="https://www.facebook.com/craigmorleymusic/" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static 'images/icons/facebook/Facebook_Logo_Primary.png' %}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link apple-icon-small icon-small" href="https://apple.co/3XMxnug" rel="noopener noreferrer">
+                                <img src="{% static '/images/icons/apple/apple icon.svg' %}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link amazon-icon-small icon-small" href="https://music.amazon.com/albums/B0CYW2PGXW" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static '/images/icons/amazon/Stacked_Amazon_Music_CharcoalOnCyan_Circle_RGB.png' %}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link tidal-icon-small icon-small" href="" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static '/images/icons/tidal/tidal-round-black-icon.webp' %}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link bandcamp-icon-small icon-small" href="https://craigmorley.bandcamp.com" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static '/images/icons/bandcamp/bandcamp-button-bc-circle-aqua-512.png' %}">
+                            </a>
+                        </li>
+                        <li class="nav-item-i">
+                            <a class="nav-link soundcloud-icon-small icon-small" href="https://soundcloud.com/craigmorleymusic" target="_blank" rel="noopener noreferrer">
+                                <img src="{% static '/images/icons/soundcloud/419679-1x1_SoundCloudLogo_cloudmark-f5912b-original-1645807040.jpg' %}">
+                            </a>
+                        </li>
+                    </ul>
+            </nav>
 
-        <div class="body">
-            {% block body %}
-            {% endblock %}
-        </div>
-    </body>
+            <div class="body">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </body>
+        
+        <footer class="mt-auto">
+            {% include 'cm_music/footer.html' %}
+        </footer>
+    </div>
 </html>

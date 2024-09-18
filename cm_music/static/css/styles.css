@@ -2,7 +2,8 @@
 body {
     background-image: url("/static/images/background/bground sky.png");
     background-size: cover; /* Ensures the image covers the entire screen */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-repeat: repeat; /* Prevents the image from repeating */
+    background-attachment: fixed;
     background-position: center; /* Centers the image */
 }
 
@@ -45,7 +46,7 @@ html, body {
 
 .navbar-nav.ml-auto {
     display: flex;
-    flex-direction: row; /* Right nav is vertical */
+    flex-direction: row;
     align-items: flex-start; 
     list-style: none;
     gap: 0.5rem; 
@@ -54,7 +55,8 @@ html, body {
 .navbar .nav-link {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-    font-weight: 450;
+    font-weight: 600;
+    color: #000c50;
 }
 
 .nav-item {
@@ -62,10 +64,32 @@ html, body {
 }
 
 .nav-item-i {
-    padding: 0rem; /* maybe 0.1 for icons */
+    padding: 0.1rem; /* maybe 0.1 for icons */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+
+
+/* LINKS ANIMATION */
+
+
+
 /* NAVBAR ICONS */
+.amazon-icon-small img {
+    max-height: 30px;
+}
+
+.apple-icon-small img {
+    max-height: 30px;
+}
+
+.bandcamp-icon-small img {
+    max-height: 30px;
+}
+
 .facebook-icon-small img {
     max-height: 30px;
 }
@@ -74,7 +98,7 @@ html, body {
     max-height: 30px;
 }
 
-.tiktok-icon-small img {
+.soundcloud-icon-small img {
     max-height: 30px;
 }
 
@@ -82,11 +106,67 @@ html, body {
     max-height: 31px;
 }
 
+.tidal-icon-small img {
+    max-height: 30px;
+}
+
+.tiktok-icon-small img {
+    max-height: 30px;
+}
+
 .youtube-icon-small img {
     max-height: 26px;
 }
 
 
+@keyframes zoomInFromTopLeft {
+    0% {
+        transform: scale(0) translate(-100%, -100%); /* Start from top-left corner, small size */
+        opacity: 0; /* Make it invisible at the start */
+    }
+    100% {
+        transform: scale(1) translate(0, 0); /* End at normal size and position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.icon-big img {
+    max-height: 180px;
+    margin: 30px;
+    transition: transform 0.5s;
+
+    /* ANIMATION */
+    animation: zoomInFromTopLeft 0.9s ease-out forwards; /* Duration of 1.5s with smooth easing */
+    opacity: 0; /* Start invisible before animation */
+}
+
+.links-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+@keyframes spotifyLinkAppear {
+    0% {
+        transform: scale(0) translate(-50%, -50%); /* Start from top-left corner, small size */
+        opacity: 0; /* Make it invisible at the start */
+    }
+    100% {
+        transform: scale(1) translate(0, 0); /* End at normal size and position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.spotify-link-appear {
+    animation: spotifyLinkAppear 1.4s ease-out forwards;
+}
+
+
+/* MUSIC PAGE */
+#ep-container {
+    margin: 30px 10% 25px;
+}
 
 /* REGISTRATION */
 #login-form {
@@ -118,8 +198,35 @@ html, body {
 .bio-box {
     margin: 25px 40% 300px;
     font-weight: 600;
+    font-size: 16px;
+    color: rgb(64, 64, 64);
+    
+    animation: fade-in 0.5s ease-in forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 
 /* LINKS PAGE */
+
+
+
+
+/* FOOTER */
+.footer-link {
+    font-size: 0.9rem;
+    /* background-color: darkblue; */
+}
+
+.footer-link2 {
+    font-size: 0.9rem;
+    /* background-color: darkblue; */
+}
 

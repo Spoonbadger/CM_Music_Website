@@ -4,7 +4,26 @@
 {% block body %}
 
     <div id="home-view">
+
+
+
+        <div class="vids-box"></div>
+            <div class="vid-row">
+                {% for video in videos %}
+                    <div class="vid">
+                        <video style="max-height: 500px;" src="{% static  'videos/App ready GL short marbles.mp4' %}" controls></video>
+                    </div>
+                    {% if forloop.counter|divisibleby:3 %}
+                        </div><div class="vid-row">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+
     </div>
+
 
 
 {% endblock %}

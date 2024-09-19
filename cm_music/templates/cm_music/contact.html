@@ -4,6 +4,45 @@
 {% block body %}
 
 <div id="contact-view">
+
+    <div class="contact-title">
+        Get in contact - I'd love to hear from you.
+    </div>
+
+    <div class="contact-form-container">
+        <form class="contact-form" action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+
+            <!-- Name input -->
+            <div data-mdb-input-init class="form-outline mb-4 form-part">
+                <label class="form-label" for="form4Example1">{{ form.name.label }}</label>
+                {{ form.name }}
+            </div>
+        
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4 form-part">
+                <label class="form-label" for="form4Example2">{{ form.email.label }}</label>
+                {{ form.email }}
+            </div>
+        
+            <!-- Message input -->
+            <div data-mdb-input-init class="form-outline mb-4 form-part">
+                <label class="form-label" for="form4Example3">{{ form.message.label }}</label>
+                {{ form.message }}
+            </div>
+        
+            <!-- Submit button -->
+            <button data-mdb-ripple-init type="submit" class="btn btn-light btn-block mb-4 contact-button">Send</button>
+        </form>
+    </div>
+
+
+    <div id="invest-container">
+        
+
+    </div>
+
+
 </div>
 
 

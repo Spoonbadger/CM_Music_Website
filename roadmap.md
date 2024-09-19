@@ -1,6 +1,5 @@
 Craig Morley Music project aka cm_music app
 
-
 Navbar
 top left
     -> Home
@@ -46,7 +45,7 @@ Contact - just a view
         -> Name
         -> email
         -> message
-    -> donate stripe? or square?
+    -> messages sent through to my email
 
 Footer?
 all links
@@ -55,6 +54,16 @@ donate
 contact: craig.adam.morley@gmail.com or website specific email.
 
 
+Models
+
+Forms
+
+Admin
+
+Testing
+
+
 TODOs:
-- Change the background picture to the fuller image of the sky and not just the zoomed in EP cover version.
-- put in a @keyframes animation
+send the contact form via JS
+animation and better design elements
+logo for my name. svg file.

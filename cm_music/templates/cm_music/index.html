@@ -5,34 +5,19 @@
 
     <div id="home-view">
 
+        <div>  
+            <div class="ep-container">
+                <img class="ep-cover" src="/static/images/EP/Firewing EP.png" href="">
+            </div>
 
-
-        <div class="vids-box">
-                {% for video in videos %}
-                    <div class="vid">
-                        <video class="video" src="{% static  video %}"></video>
-                    </div>
-                {% endfor %}
+            <div class="ep-writing">
+                THE NEW EP 'Firewing' - OUT NOW
             </div>
         </div>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const videos = document.querySelectorAll('.video')
-
-                videos.forEach(video => {
-                    video.addEventListener('mouseover', () => {
-                        video.play();
-                    })
-
-                    video.addEventListener('mouseout', () => {
-                        video.pause();
-                        video.currentTime = 0;
-                    })
-                })
-            })
-        </script>
-
+        <div class="name-title">
+            Craig Morley
+        </div>
 
 
     </div>

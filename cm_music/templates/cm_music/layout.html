@@ -12,6 +12,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
+
         <!-- Javascript libraries for React -->
         <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
@@ -25,7 +29,7 @@
     <div class="d-flex flex-column min-vh-100">
         <body>
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="{% url 'index' %}" style="color: #000c50;">Craig Morley</a>
+                <a class="navbar-brand" href="{% url 'index' %}">Craig Morley</a>
 
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
@@ -38,16 +42,18 @@
                         {% endif %}
                     </ul>
                     <ul class="navbar-nav ml-auto">
-                        {% if not user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a>
+                        <!-- {% if not user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
                         </li>
                         {% endif %}
                         {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                         </li>
-                        {% endif %}
+                        {% endif %} -->
                         <li class="nav-item-i">
                             <a class="nav-link spotify-icon-small icon-small" href="https://open.spotify.com/track/0rD7r6tH03uVqbheAqn0yQ?si=a0de3070b0e14f3f" target="_blank" rel="noopener noreferrer">
                                 <img src="{% static 'images/icons/spotify/Spotify_Primary_Logo_RGB_Green.png' %}">

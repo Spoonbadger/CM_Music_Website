@@ -13,9 +13,9 @@ import random
 
 from .models import User
 
+
 def bio(request):
     return render(request, "cm_music/bio.html")
-
 
 
 def contact_page(request):
@@ -50,8 +50,7 @@ def contact_page(request):
 
 
 def index(request):
-
-    return render(request, 'cm_music/index.html')
+    return render(request, 'index.html')
 
 
 def links(request):

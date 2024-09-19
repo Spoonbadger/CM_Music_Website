@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from .forms import contactForm
-from .models import Contact
+from .models import ContactMessage
 
 import random
 
@@ -18,7 +18,7 @@ def bio(request):
 
 
 
-def contact(request):
+def contact_page(request):
     if request.method == 'POST':
         form = contactForm(request.POST)
         if form.is_valid():
@@ -26,7 +26,7 @@ def contact(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             # Create the new Contact and save it
-            contact = Contact(name=name, email=email, message=message)
+            contact = ContactMessage(name=name, email=email, message=message)
             contact.save()
 
             # Also send an email

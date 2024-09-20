@@ -21,7 +21,7 @@
         <div class="vids-box">
             {% for video in videos %}
                 <div class="vid">
-                    <video class="video" src="{% static  video %}"></video>
+                    <video class="video" src="{% static  video.file_path %}"></video>
                 </div>
             {% endfor %}
         </div>

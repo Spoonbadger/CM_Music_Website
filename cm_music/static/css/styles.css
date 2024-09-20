@@ -344,6 +344,16 @@ html, body {
 }
 
 
+/* INVEST */
+.invest-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+
+
 /* FOOTER */
 .footer-link {
     font-size: 0.9rem;
@@ -372,6 +382,10 @@ html, body {
 
     animation: fade-in 1s forwards;
 }
+
+
+
+
 
 
 /* FONTS */

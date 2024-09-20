@@ -6,12 +6,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 
-from .forms import contactForm
-from .models import ContactMessage
-
 import random
 
-from .models import User
+from .forms import contactForm
+from .models import ContactMessage, Videos
+
+
+def index(request):
+    return render(request, 'cm_music/index.html')
 
 
 def bio(request):
@@ -25,16 +27,16 @@ def contact_page(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            # Create the new Contact and save it
+            # Create the new ContactMessage and save it
             contact = ContactMessage(name=name, email=email, message=message)
             contact.save()
 
-            # Also send an email
+            # Send an email, I can't beleive this works!
             send_mail(
-                'New music contact form message', # Subject
-                f"Name: {name}\n Message: {message}", #
-                email,
-                ['craig.adam.morley@gmail.com'],
+                'New music Contact Form message', # Subject line
+                f"Name: {name}\n Message: {message}", # Displayed in email body
+                email,  # Email message displayed in email body
+                ['craig.adam.morley@gmail.com'], # Send to address
                 fail_silently=False,
             )
 
@@ -47,10 +49,10 @@ def contact_page(request):
         return render(request, "cm_music/contact.html", {
             "form": contactForm(),
         })
+    
 
-
-def index(request):
-    return render(request, 'index.html')
+def invest(request):
+    return render(request, "cm_music/invest.html")
 
 
 def links(request):
@@ -58,18 +60,7 @@ def links(request):
 
 
 def music(request):
-    videos = [
-        '/videos/By Acting Together We Really Act Vert SD Craig Morley copy.mp4',
-        '/videos/LMM 32 secs VERT.mp4',
-        '/videos/Ocean of Love VERT SD Craig Morley copy.mp4',
-        '/videos/Shotgun when 12 VERT SD Craig Morley copy.mp4',
-        '/videos/VERT cm Beauty and Loss.mp4',
-        '/videos/VERT dune one.mp4',
-        '/videos/VERT Firewing.mp4',
-        '/videos/VERT On the coarctation.mp4',
-        '/videos/VERT2 cig thrown.mp4'
-    ]
-
+    videos = list(Videos.objects.all())
     random.shuffle(videos)
 
     return render(request, "cm_music/music.html", {
@@ -77,52 +68,52 @@ def music(request):
     })
 
 
-def login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+# def login(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect(reverse(index))
-        else:
-            return render(request, 'login.html', {
-                "message": "Invalid username and/or password."
-            })
+#         if user is not None:
+#             login(request, user)
+#             return HttpResponseRedirect(reverse(index))
+#         else:
+#             return render(request, 'login.html', {
+#                 "message": "Invalid username and/or password."
+#             })
         
-    else:
-        return render(request, 'cm_music/login.html')
+#     else:
+#         return render(request, 'cm_music/login.html')
         
 
 
-def logout(request):
-    logout(request)
-    return HttpResponseRedirect(reverse(index))
+# def logout(request):
+#     logout(request)
+#     return HttpResponseRedirect(reverse(index))
 
 
-def register(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
+# def register(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         email = request.POST['email']
 
-        password = request.POST['password']
-        confirm_password = request.POST['confirm_password']
-        if password != confirm_password:
-            return render(request, 'cm_music/register', {
-                "message": "Password and Password confirmation must match."
-            })
+#         password = request.POST['password']
+#         confirm_password = request.POST['confirm_password']
+#         if password != confirm_password:
+#             return render(request, 'cm_music/register', {
+#                 "message": "Password and Password confirmation must match."
+#             })
         
-        # Attempt to create a new user
-        try:
-            user = User.objects.create_user(username, email, password)
-            user.save()
-        except IntegrityError:
-            return render(request, 'cm_music/register', {
-                "message": "Username already taken."
-            })
-        login(request, user)
-        return HttpResponseRedirect(reverse(index))
+#         # Attempt to create a new user
+#         try:
+#             user = User.objects.create_user(username, email, password)
+#             user.save()
+#         except IntegrityError:
+#             return render(request, 'cm_music/register', {
+#                 "message": "Username already taken."
+#             })
+#         login(request, user)
+#         return HttpResponseRedirect(reverse(index))
     
-    else:
-        return render(request, 'cm_music/register.html')
+#     else:
+#         return render(request, 'cm_music/register.html')

@@ -65,5 +65,5 @@ Testing
 
 TODOs:
 send the contact form via JS
-animation and better design elements
+animation and better design elements via JS not reloading on each page.
 logo for my name. svg file.

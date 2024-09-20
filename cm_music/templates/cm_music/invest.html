@@ -1,0 +1,22 @@
+{% extends 'cm_music/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+
+
+<div id="invest-container" class="invest-container">
+
+    <script async
+        src="https://js.stripe.com/v3/buy-button.js">
+    </script>
+  
+    <stripe-buy-button
+        buy-button-id="buy_btn_1Q1384IdaV2VtQr7G5JMPHpr"
+        publishable-key="pk_live_51Q0mIYIdaV2VtQr7Isl9Uz1buLBoH6mPmRB5bmicDGLMRDpN3IgIv0TC6WeX39XRHBeH3DAVCn7wwEPkPzmVUGhI000zhTGHDS">
+    </stripe-buy-button>
+    
+</div>
+
+
+{% endblock %}

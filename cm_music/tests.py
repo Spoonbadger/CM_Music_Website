@@ -1,7 +1,8 @@
 from django.test import TestCase
+from django.core.exceptions import ValidationError
 
 # Create your tests here.
-from . models import ContactMessage
+from . models import ContactMessage, Videos
 
 class ContactMessageTestCase(TestCase):
 
@@ -33,3 +34,15 @@ class ContactMessageTestCase(TestCase):
         ContactMessage.objects.create(name="Craig", email="craig.adam.morley@gmail.com", message="Message 2.")
         ContactMessage.objects.create(name="helen", email="helen@email.com", message="Message 3.")
         self.assertEqual(len(ContactMessage.objects.all()), 3)
+
+
+class VideosTestCase(TestCase):
+
+    def test_video_added(self):
+        Videos.objects.create(title="Lovely video", file_path="/videos/thisisthe video.mp4")
+        self.assertEqual(len(Videos.objects.all()), 1)
+
+    def test_no_file_path(self):
+        video = Videos.objects.create(title="Nice vid", file_path="")
+        with self.assertRaises(ValidationError):
+            video.full_clean()

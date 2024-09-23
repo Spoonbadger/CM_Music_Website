@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-58@gz$gpkbqs$2@4u+p0x27&j#gfp_+=$agpdf1633ma5w^tw_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -92,6 +92,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# postgresql://cm_music_django_render_user:HZ9QtfW2iuTqiGTuXRlUJRntx1n3noLr@dpg-cros6ijtq21c73aqsrtg-a.oregon-postgres.render.com/cm_music_django_render
+
 
 # Hello me. I needed to add this line to allow User to work in models.
 AUTH_USER_MODEL = "cm_music.User"

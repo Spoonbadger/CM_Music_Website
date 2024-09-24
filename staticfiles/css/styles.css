@@ -21,15 +21,16 @@ html, body {
     font-size: 18px;
     font-weight: 600;
     color: #000c50;
+    animation: fade-in 1s ease-in forwards;
 }
 
 
 /* NAVBAR */
 .navbar-brand {
-    color: black;
-    font-family: 'Montserrat', sans-serif;
+    color: #000c50;
+    font-family: Ruluko;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .navbar {
@@ -56,7 +57,7 @@ html, body {
 }
 
 .navbar .nav-link {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Ruluko;
     font-size: 18px;
     font-weight: 600;
     color: #000c50;
@@ -117,6 +118,42 @@ html, body {
 }
 
 
+/* HOME PAGE */
+.name-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 100px 20px 100px;
+    font-size: 80px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    color:#000c50;
+    animation: fade-in 3s forwards;
+}
+
+.ep-container {
+    display: flex;
+    justify-content: center;
+}
+
+.ep-writing {
+    display: flex;
+    justify-content: center;
+    font-family: Ruluko;
+    font-size: 2rem;
+    font-weight: 500;
+    color:#000c50;
+    animation: fade-in 3s forwards;
+}
+
+.ep-cover {
+    margin: 50px;
+    max-height: 30%;
+    max-width: 30%;
+
+}
+
 /* MUSIC PAGE */
 #ep-container {
     margin: 30px 10% 25px;
@@ -126,21 +163,30 @@ html, body {
 .vids-box {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1%;
     justify-content: center;
-}
 
-.vid-row {
-    width: 100%;
-    height: auto;
 }
 
 .vid {
+    display: flex;
     box-sizing: border-box;
     flex: 1 1 30%;
     overflow: hidden;
-    max-width: 20%;
+    max-width: 200px;
+    max-height: 300px;
+    margin: 1% 1%;
+    border-radius: 15%;
+    justify-content: center
+}
 
+.vid:hover {
+    cursor: pointer;
+}
+
+.video {
+    object-fit: fill;
+    justify-content: center;
 }
 
 
@@ -163,7 +209,7 @@ html, body {
     font-size: 16px;
     color: #000c50;
     
-    animation: fade-in 0.5s ease-in forwards;
+    animation: fade-in 1.5s ease-in forwards;
 }
 
 @keyframes fade-in {
@@ -181,7 +227,7 @@ html, body {
     align-items: center;
     max-height: 300px;
     margin: 3%;
-    border-radius: 80px;
+    border-radius: 50px;
 }
 
 .images-bio {
@@ -236,6 +282,77 @@ html, body {
 }
 
 
+/* CONTACT */
+.contact-title {
+    display: flex;
+    justify-content: center;
+    margin: 40px 40px;
+    font-family: Ruluko;
+    font-size: 30px;
+}
+
+.contact-form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 26rem;
+}
+
+.form-part input {
+    display: inline-block;
+    border-radius: 15px;
+    padding: 5px;
+    width: 320px;
+    background-color: rgb(240, 240, 240);
+}
+
+.form-part textarea {
+    display: inline-block;
+    border-radius: 15px;
+    padding: 5px;
+    width: 500px;
+    background-color: rgb(240, 240, 240);
+}
+
+.contact-button {
+    width: 80px;
+    margin: auto;
+    justify-content: center;
+}
+
+
+.thankyou-container {
+    margin-top: 60px;
+}
+
+.thankyou-message {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Ruluko;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 40px;
+
+    animation: fade-in 3s forwards;
+}
+
+
+/* INVEST */
+.invest-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+
 
 /* FOOTER */
 .footer-link {
@@ -265,3 +382,15 @@ html, body {
 
     animation: fade-in 1s forwards;
 }
+
+
+
+
+
+
+/* FONTS */
+.ruluko-regular {
+    font-family: "Ruluko", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }

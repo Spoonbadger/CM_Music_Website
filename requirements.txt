@@ -62,4 +62,6 @@ virtualenv==20.26.3
 websocket-client==1.8.0
 Werkzeug==3.0.1
 wheel==0.42.0
+whitenoise==6.2.0
+Brotli==1.0.9
 wsproto==1.2.0

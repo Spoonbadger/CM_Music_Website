@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-58@gz$gpkbqs$2@4u+p0x27&j#gfp_+=$agpdf1633ma5w^tw_'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(" ")
 
 
 
@@ -87,14 +87,19 @@ WSGI_APPLICATION = 'music_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': { # Set up a new postgresql database
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    },
+    'sqlite': { # Kept the old sqlite database just because...
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-# postgresql://cm_music_django_render_user:HZ9QtfW2iuTqiGTuXRlUJRntx1n3noLr@dpg-cros6ijtq21c73aqsrtg-a.oregon-postgres.render.com/cm_music_django_render
 
 
 # Hello me. I needed to add this line to allow User to work in models.

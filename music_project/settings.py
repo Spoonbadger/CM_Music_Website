@@ -29,7 +29,7 @@ DEBUG = config('DEBUG', default=False)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(" ")
 
-
+# If you see this comment delete it.
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

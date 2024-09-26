@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+# Comment to delete. (updated .env)
 
 # Hello me. I needed to add this line to allow User to work in models.
 AUTH_USER_MODEL = "cm_music.User"

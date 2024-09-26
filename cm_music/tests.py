@@ -12,8 +12,8 @@ class ContactMessageTestCase(TestCase):
 
     
     def test_contact_message_message(self):
-        ContactMessage.objects.create(name="Craig", email="craig.adam.morley@gmail.com", message="Testing a different message.")
-        self.assertEqual(ContactMessage.objects.get(id=1).message, "Testing a different message.")
+        contact_message = ContactMessage.objects.create(name="Craig", email="craig.adam.morley@gmail.com", message="Testing a different message.")
+        self.assertEqual(contact_message.message, "Testing a different message.")
 
 
     def test_empty_name(self):
